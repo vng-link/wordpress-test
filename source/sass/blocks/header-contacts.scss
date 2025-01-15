@@ -1,0 +1,110 @@
+.header-contacts {
+  &--mobile {
+    display: none;
+
+    @include vp-679 {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: flex;
+
+    @include vp-1023 {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin: 0 50px 0 0;
+
+    @include vp-1279 {
+      margin: 0 40px 0 0;
+    }
+
+    @include vp-1023 {
+      margin: 0 0 15px;
+    }
+
+    @include vp-679 {
+      margin: 0 0 25px;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+
+    svg {
+      flex-shrink: 0;
+
+      width: 60px;
+      height: 60px;
+      margin: 0 12px 0 0;
+
+      @include vp-1023 {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  &__address {
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+
+    color: $color-charcoal;
+
+    @include vp-1279 {
+      max-width: 256px;
+    }
+
+    @include vp-679 {
+      color: $color-default-white;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__phone {
+    margin: 0 0 4px;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+
+    color: $color-charcoal;
+
+    transition: opacity $trans-default;
+
+    @include vp-1023 {
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    @include vp-679 {
+      color: $color-default-white;
+    }
+
+    @include hover-focus {
+      opacity: 0.8;
+    }
+  }
+
+  &__text {
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: $color-dawn;
+  }
+}

@@ -1,0 +1,41 @@
+mixin menu()
+  -
+    const list = [
+      {
+        href: "#",
+        icon: {
+          name: "icon-house",
+          width: "21",
+          height: "21"
+        },
+        label: "Главная"
+      },
+      {
+        href: "#",
+        icon: {
+          name: "icon-category",
+          width: "21",
+          height: "21"
+        },
+        label: "Каталог"
+      },
+      {
+        href: "#",
+        icon: {
+          name: "icon-cart",
+          width: "21",
+          height: "21"
+        },
+        label: "Корзина"
+      }
+    ]
+
+  .menu
+    ul.list-reset.menu__list
+      each item in list
+        li.menu__item
+          a.menu__link(href=item.href)
+            if (item.icon.name === 'icon-cart')
+              span.menu__count 999
+            +icon(item.icon.name, item.icon.width, item.icon.height)
+            .menu__label!=item.label

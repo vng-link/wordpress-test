@@ -1,11 +1,5 @@
 import {mobileVhFix} from './utils/mobile-vh-fix';
-import {initAccordion} from './modules/accordion/init-accordion';
-import {initCustomSelect} from './modules/custom-select/init-custom-select';
 import {initHeader} from './modules/header/init-header';
-import {initModals} from './modules/modal/init-modals';
-import {initPhoneMask} from './modules/init-phone-mask';
-import {initPhoneValidation} from './modules/init-phone-validation';
-import {initTabs} from './modules/tabs/init-tabs';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -18,16 +12,11 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   initHeader();
-  initModals();
-  initAccordion();
-  initTabs();
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-    initCustomSelect();
-    initPhoneMask();
-    initPhoneValidation();
+
   });
 });
 

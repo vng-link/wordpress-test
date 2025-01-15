@@ -18,6 +18,12 @@
   }
 }
 
+@mixin focus-within {
+  &:has:focus-visible {
+    @content;
+  }
+}
+
 @mixin active {
   @media (hover: hover) {
     &:active {
@@ -76,6 +82,12 @@
   }
 }
 
+@mixin vp-679 {
+  @media (max-width: ($vp-680 - 1px)) {
+    @content;
+  }
+}
+
 @mixin vp-389 {
   @media (max-width: ($vp-390 - 1px)) {
     @content;
@@ -84,6 +96,12 @@
 
 @mixin vp-374 {
   @media (max-width: ($vp-375 - 1px)) {
+    @content;
+  }
+}
+
+@mixin vp-339 {
+  @media (max-width: ($vp-340 - 1px)) {
     @content;
   }
 }

@@ -3,39 +3,90 @@ mixin header(headerMods, currentUrl)
     const headerLinks = [
       {
         href: "#",
-        text: "Бизнес",
-        isActive: true,
+        text: "Каталог",
       },
       {
         href: "#",
-        text: "О нас"
+        text: "Доставка и&nbsp;возврат"
       },
       {
         href: "#",
-        text: "Цены"
+        text: "Способы оплаты"
       },
       {
         href: "#",
-        text: "Оформить заказ"
+        text: "Стать партнером",
+        dropdown: [
+          {
+            href: "#",
+            text: "Стать партнером"
+          },
+          {
+            href: "#",
+            text: "Стать партнером"
+          },
+          {
+            href: "#",
+            text: "Стать партнером"
+          }
+        ]
+      },
+      {
+        href: "#",
+        text: "Помощь кинологов"
       }
     ]
 
-  header.header(class=headerMods data-header)
+  header.header(class=headerMods)
     .container
-      .header__wrapper
-        if(currentUrl === "index.html")
-          span.header__logo
-            +icon("logo", 247, 35)
-        else
-          a.header__logo(href="index.html", aria-label="Переход на главную")
-            +icon("logo", 247, 35)
+      .header-top
+        a.header-top__logo(href="/", aria-label="Переход на главную")
+          +icon("logo", 112, 75)
+          span Производство кормов и&nbsp;товаров для животных
+        .header-contacts
+          ul.list-reset.header-contacts__list
+            li.header-contacts__item
+              +icon("icon-pin", 60, 60)
+              p.header-contacts__address г. Москва Варшавское шоссе д.&nbsp;29&nbsp;корп.&nbsp;2
+            li.header-contacts__item
+              +icon("icon-phone", 60, 60)
+              .header-contacts__contacts
+                a.header-contacts__phone(href="tel:+78005008922") +7 (800) 500-89-22
+                p.header-contacts__text Пн-пт: с&nbsp;08:00 до&nbsp;20:00
+      .header-bottom(data-header)
+        a.header-bottom__logo(href="/", aria-label="Переход на главную")
+          +icon("logo", 112, 75)
         nav.main-nav
           button(type="button" aria-label="Переключатель отображения меню", aria-pressed="false" data-toggle-menu).btn-reset.main-nav__toggle
             span
             span
             span
-          ul.main-nav__list
-            each item in headerLinks
-              li.main-nav__item
-                a.main-nav__link(class={"is-active": item.isActive} href=item.href)!=item.text
-
+          .main-nav__menu
+            .main-nav__menu-wrapper
+              ul.main-nav__list(data-header-accordion)
+                each item in headerLinks
+                  li.main-nav__item(class={"menu-item-has-children" : item.dropdown})
+                    a.main-nav__link(href=item.href)!=item.text
+                      if (item.dropdown)
+                        +icon("icon-chevron-down", 16, 9)
+                    if (item.dropdown)
+                      ul.main-nav__sublist
+                        each subitem in item.dropdown
+                          li.main-nav__subitem
+                            a.main-nav__sublink(href=subitem.href)!=subitem.text
+              .header-contacts.header-contacts--mobile
+                ul.list-reset.header-contacts__list
+                  li.header-contacts__item
+                    +icon("icon-phone-white", 60, 60)
+                    .header-contacts__contacts
+                      a.header-contacts__phone(href="tel:+78005008922") +7 (800) 500-89-22
+                      p.header-contacts__text Пн-пт: с&nbsp;08:00 до&nbsp;20:00
+                  li.header-contacts__item
+                    +icon("icon-pin-white", 60, 60)
+                    p.header-contacts__address г. Москва Варшавское шоссе д.&nbsp;29&nbsp;корп.&nbsp;2
+        a.header-bottom__cart(href="#" aria-label="Перейти в корзину")
+          span.header-bottom__count 999
+          +icon("icon-cart", 48, 48)
+        a.header-bottom__phone(href="tel:+78005008922" aria-label="Позвонить")
+          +icon("icon-phone-white", 40, 40)
+  +menu()

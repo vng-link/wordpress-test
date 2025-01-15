@@ -1,23 +1,18 @@
 mixin intro()
   section.intro
-    .intro__background
-      +picture("content", "intro-background", "png", 1920, 850, "background")
-    //- вставлять блоки во внешний контейнер неверно (если это не фон, например)
-    //- все блоки содержат в себе container без доп класса tutorial__wrapper
     .container
       .intro__wrapper
-        h1.intro__title
-          span Lorem ipsum
-          = " dolor sit ametconsectetur "
-          span adipiscing
-        p.intro__description At&nbsp;vero eos et&nbsp;accusamus et&nbsp;iusto odio dignissimos
-        ul.intro__list
-          li.intro__item
-            span Totam rem aperiam eaque ipsa
-          li.intro__item
-            span Sit voluptatem accusantium doloremque laudantium
-          li.intro__item
-            span Sed ut perspiciatis, unde omnis iste natus error
-        .intro__buttons
-          +btn({text: "заказать", type: "button"}).intro__button
-          +btn({text: "подробнее", type: "button"}).btn--white.intro__button
+        .intro__info
+          h1.intro__title Корма из натурального сырья и&nbsp;другая продукция для животных
+          .intro__content
+            p Мы&nbsp;&mdash; российская компания-производитель качественных и&nbsp;экологичных товаров для животных по&nbsp;приемлемым ценам под торговой маркой PROFODDER.
+          +btn({href: "#", text: "Смотреть товары"}).intro__button
+          .intro__background
+            +img("content/intro", "paws", "webp", "200", "200", "")
+        .intro__image
+          picture
+            source(media="(max-width: 679px)" srcset="img/content/intro/cat-and-dog-mobile.webp, img/content/intro/cat-and-dog-mobile@2x.webp 2x")
+            source(media="(max-width: 1023px)" srcset="img/content/intro/cat-and-dog-tablet.webp, img/content/intro/cat-and-dog-tablet@2x.webp 2x")
+            img(src="img/content/intro/cat-and-dog.webp" srcset="img/content/intro/cat-and-dog@2x.webp 2x" width="750" height="420" alt="Кошка и собака на фоне травы")
+          //- +img("content/intro", "cat-and-dog", "webp", "750", "420", "Кошка и собака на фоне травы")
+        +btn({href: "#", text: "Смотреть товары"}).intro__button.intro__button--tablet

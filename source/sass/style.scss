@@ -2,10 +2,6 @@
 // ---------------------------------
 
 @import "vendor/normalize";
-@import "vendor/swiper/navigation";
-@import "vendor/swiper/pagination";
-@import "vendor/swiper/swiper";
-@import "vendor/fancybox";
 
 // Global
 // ---------------------------------
@@ -22,19 +18,14 @@
 // ---------------------------------
 
 @import "blocks/header";
+@import "blocks/header-top";
+@import "blocks/header-bottom";
+@import "blocks/header-contacts";
+@import "blocks/menu";
 @import "blocks/main-nav";
 @import "blocks/footer";
 @import "blocks/btn";
-@import "blocks/data-accordion";
-@import "blocks/data-tabs";
 @import "blocks/intro";
-@import "blocks/accordion";
-@import "blocks/modal";
-@import "blocks/custom-checkbox";
-@import "blocks/custom-input";
-@import "blocks/custom-radio";
-@import "blocks/custom-select";
-@import "blocks/custom-textarea";
 
 // ---------------------------------
 

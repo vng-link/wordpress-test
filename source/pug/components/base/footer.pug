@@ -1,3 +1,43 @@
 mixin footer(footerMods)
+  -
+    const footerLinks = [
+      {
+        href: "#",
+        text: "Каталог",
+      },
+      {
+        href: "#",
+        text: "Доставка и&nbsp;возврат"
+      },
+      {
+        href: "#",
+        text: "Способы оплаты"
+      },
+      {
+        href: "#",
+        text: "Стать партнером"
+      },
+      {
+        href: "#",
+        text: "Помощь кинологов"
+      }
+    ]
+
   footer.footer(class=footerMods)
     .container
+      .footer__wrapper
+        a.footer__logo(href="/", aria-label="Переход на главную")
+          +icon("logo", 112, 75)
+          span Производство кормов и&nbsp;товаров для животных
+        .footer__contacts
+          a.footer__phone(href="tel:+78005008922") +7 (800) 500-89-22
+          p.footer__address Россия, г. Москва Варшавское шоссе д.&nbsp;29&nbsp;корп.&nbsp;2
+        ul.list-reset.footer__list
+          each item in footerLinks
+            li.footer__item
+              a.footer__link(href=item.href)!=item.text
+        .footer__info
+          a.footer__policy(href="#") Политика в&nbsp;области обработки персональных данных
+          p.footer__recaptcha Сайт защищен от&nbsp;спама сервисом Google Recaptcha <a href="https://policies.google.com/terms?hl=ru" target="_blank" rel="nofollow noreferrer">правила использования</a>/<a href="https://policies.google.com/privacy?hl=ru" target="_blank" rel="nofollow noreferrer">политика конфиденциальности</a>
+          p.footer__developed-by Сайт разработан в студии <a href="https://vng-link.ru/" target="_blank" rel="nofollow noreferrer">VngLink</a>
+        p.footer__recaptcha.footer__recaptcha--tablet Сайт защищен от&nbsp;спама сервисом Google Recaptcha <a href="https://policies.google.com/terms?hl=ru" target="_blank" rel="nofollow noreferrer">правила использования</a>/<a href="https://policies.google.com/privacy?hl=ru" target="_blank" rel="nofollow noreferrer">политика конфиденциальности</a>

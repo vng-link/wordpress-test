@@ -10,14 +10,26 @@ $color-transparent:             rgba(255, 255, 255, 0);
 // Project palette
 // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
 
-$color-black-russian:           #10101d;
-$color-black-russian-2:         #2a2b30;
-$color-jaguar:                  #272733;
-$color-blue-zodiac:             #3d4050;
-$color-summer-sky:              #43abf0;
-$color-summer-sky-2:            #3e9cdc;
-$color-silver:                  #c3c3c3;
-$color-dolphin:                 #6f6d7b;
+$color-ivory:                   #fffef9;
+$color-dawn:                    #9c9b95;
+$color-charcoal:                #414141;
+$color-crusoe:                  #126133;
+$color-apricot:                 #fed3b4;
+$color-tacao:                   #fcad73;
+$color-varden:                  #fdeed2;
+$color-surf-crest:              #c3dbbb;
+$color-hippie-green:            #6e9860;
+$color-panache:                 #eafbe5;
+$color-lemon-chiffon:           #fff9d1;
+$color-kournikova:              #fad052;
+$color-corn-silk:               #fdf8d8;
+$color-wan-white:               #e2e1dd;
+$color-costa-del-sol:           #675e1d;
+$color-cocoa-brown:             #402800;
+$color-nero:                    #282828;
+$color-matterhorn:              #4b4b4b;
+$color-whisper:                 #e5e5e5;
+$color-fog:                     #d5d4d9;
 
 // Gradient
 
@@ -27,9 +39,9 @@ $black-to-right: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0)
 // ---------------------------------
 
 // переменная используемая в html для подключения скейлинга
-$fz-default: 20px;
+$fz-default: 18px;
 
-$ff-lato: "Lato", "Arial", sans-serif;
+$ff-rubik: "Rubik", "Arial", sans-serif;
 
 // Animation
 // ---------------------------------
@@ -55,8 +67,10 @@ $trans-400-ease-in-out:             0.4s $tf-ease-in-out;
 // ---------------------------------
 
 $vp-320:                            320px;
+$vp-340:                            340px;
 $vp-375:                            375px;
 $vp-390:                            390px;
+$vp-680:                            680px;
 $vp-768:                            768px;
 $vp-1024:                           1024px;
 $vp-1200:                           1200px;

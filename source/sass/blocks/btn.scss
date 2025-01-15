@@ -3,16 +3,15 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  padding: 14px 9px;
+  padding: 12px 20px 13px;
 
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
 
-  border: 1px solid $color-default-white;
-  border-radius: 4px;
-  background-color: $color-summer-sky-2;
+  border: none;
+  border-radius: 8px;
+  background-color: $color-crusoe;
   color: $color-default-white;
 
   cursor: pointer;
@@ -22,13 +21,41 @@
 
   outline: none;
 
+  @include vp-1023 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
   &--white {
-    border: 1px solid $color-dolphin;
+    padding: 9px 19px;
+
+    border: 1px solid $color-crusoe;
     background-color: $color-default-white;
-    color: $color-black-russian-2;
+    color: $color-crusoe;
+  }
+
+  &--small {
+    padding: 7px 15px 8px;
+
+    @include vp-679 {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    width: 14px;
+    height: 14px;
+    margin: 0 0 0 6px;
   }
 
   @include hover-focus {
     opacity: 0.8;
+  }
+
+  &.disabled {
+    pointer-events: none;
   }
 }

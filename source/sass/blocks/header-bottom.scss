@@ -1,0 +1,166 @@
+.header-bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 16px 30px;
+
+  border-radius: 16px;
+  background: $color-crusoe;
+
+  @include vp-1279 {
+    padding: 20px;
+  }
+
+  @include vp-679 {
+    padding: 6px 0;
+
+    border-radius: 0;
+  }
+
+  &.is-open {
+    .main-nav__toggle {
+      span {
+        &:nth-child(1) {
+          top: 18px;
+          transform: rotate(-45deg) translate(0, -50%);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        &:nth-child(3) {
+          top: 17px;
+          transform: rotate(45deg) translate(0, 50%);
+        }
+      }
+    }
+
+    .main-nav__menu {
+      clip-path: inset(0 0 0 0);
+
+      visibility: visible;
+    }
+  }
+
+  &__logo {
+    z-index: 110;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    width: 80px;
+    height: 53px;
+    margin: 0 20px 0 0;
+
+    @include vp-679 {
+      display: flex;
+    }
+
+    svg {
+      flex-shrink: 0;
+
+      width: 80px;
+      height: 53px;
+
+      color: $color-default-white;
+    }
+  }
+
+  &__cart {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 48px;
+    margin: 0 0 0 auto;
+
+    transition: opacity $trans-default;
+
+    @include vp-1023 {
+      width: 36px;
+      height: 36px;
+    }
+
+    @include vp-679 {
+      display: none;
+    }
+
+    svg {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+
+      @include vp-1023 {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    @include hover-focus {
+      opacity: 0.8;
+    }
+  }
+
+  &__count {
+    position: absolute;
+  
+    top: -4px;
+    right: -17px;
+  
+    display: flex;
+    align-items: center;
+    width: 25px;
+  
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  
+    color: $color-default-white;
+  
+    @include vp-1279 {
+      top: -6px;
+      right: -16px;
+    }
+  
+    @include vp-679 {
+      top: -2px;
+      right: 2px;
+  
+      width: 18px;
+  
+      font-size: 10px;
+      line-height: 14px;
+    }
+  }
+
+  &__phone {
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    margin: 0 15px 0 auto;
+
+    transition: opacity $trans-default;
+
+    @include vp-679 {
+      display: flex;
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    @include hover-focus {
+      opacity: 0.8;
+    }
+  }
+}

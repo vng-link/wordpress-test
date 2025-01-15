@@ -1,53 +1,126 @@
 .main-nav {
+  display: flex;
+  align-items: center;
+  margin: 0 20px 0 0;
+
+  @include vp-1023 {
+    margin: 0;
+  }
+
+  @include vp-679 {
+    order: 1;
+  }
+
   &__toggle {
-    z-index: 11;
+    z-index: 110;
     position: relative;
     display: none;
+    justify-content: center;
+    align-items: center;
 
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
 
     cursor: pointer;
     user-select: none;
 
     transition: opacity $trans-default;
 
-    @include vp-767 {
+    @include vp-1023 {
       display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     span {
       display: block;
       position: absolute;
 
-      left: 0;
+      left: 8px;
 
-      width: 100%;
-      height: 3px;
+      width: 20px;
+      height: 2px;
 
+      border-radius: 100px;
       background-color: $color-default-white;
 
       transition: transform $trans-default, opacity $trans-default, visibility $trans-default;
 
+      @include vp-679 {
+        left: 5px;
+
+        width: 30px;
+      }
+
       &:nth-child(1) {
-        top: 0;
+        top: 8px;
+
+        @include vp-679 {
+          top: 9px;
+        }
       }
 
       &:nth-child(2) {
         top: 50%;
-
         transform: translateY(-50%);
       }
 
       &:nth-child(3) {
-        bottom: 0;
+        bottom: 8px;
+
+        @include vp-679 {
+          bottom: 9px;
+        }
       }
     }
 
     @include hover-focus {
       opacity: 0.8;
+    }
+  }
+
+  &__menu {
+    display: flex;
+
+    @include vp-1023 {
+      z-index: 100;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      flex-direction: column;
+
+      width: 100%;
+      padding: 76px 20px 0;
+
+      border-radius: 16px;
+      background-color: $color-crusoe;
+
+      transition: clip-path $trans-default, visibility $trans-default;
+
+      clip-path: inset(0 0 100% 0);
+
+      visibility: hidden;
+    }
+
+    @include vp-679 {
+      position: fixed;
+      bottom: 0;
+
+      padding: 90px 10px 0;
+
+      border-radius: 0;
+    }
+  }
+
+  &__menu-wrapper {
+    //overflow: auto;
+
+    @include vp-1023 {
+      padding: 0 0 30px;
+    }
+
+    @include vp-679 {
+      padding: 0 0 100px;
     }
   }
 
@@ -59,66 +132,197 @@
 
     list-style: none;
 
-    @include vp-767 {
-      z-index: 10;
-      position: fixed;
+    @include vp-1023 {
       flex-direction: column;
-      justify-content: flex-start;
+    }
 
-      top: 100px;
-      right: 0;
-      bottom: 0;
-      left: 0;
-
-      width: 100%;
-      padding: 200px 20px 20px;
-
-      background-color: rgba($color-black-russian, 0.9);
-
-      transition: transform $trans-default, visibility $trans-default, opacity $trans-default;
-      transform: translateX(100%);
+    @include vp-679 {
+      margin: 0 0 30px;
     }
   }
 
   &__item {
-    margin-right: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 40px 0 0;
 
-    @include vp-1023 {
-      margin-right: 30px;
+    @include vp-1279 {
+      margin: 0 30px 0 0;
     }
 
-    @include vp-767 {
-      margin-right: 0;
-      margin-bottom: 30px;
+    @include vp-1023 {
+      margin: 0 0 30px;
+    }
+
+    @include vp-679 {
+      margin: 0 0 25px;
+    }
+
+    &.menu-item-has-children {
+      @media (min-width: 1023px) {
+        @include focus-within {
+          .main-nav__link {
+            opacity: 0.8;
+
+            &::after {
+              content: "";
+            }
+
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+
+          .main-nav__sublist {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+
+        @include hover-focus {
+          .main-nav__link {
+            opacity: 0.8;
+
+            &::after {
+              content: "";
+            }
+
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+
+          .main-nav__sublist {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+
+    &.menu-item-has-children.is-active {
+      .main-nav__link {
+        @include vp-1023 {
+          opacity: 0.8;
+        }
+
+        svg {
+          @include vp-1023 {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .main-nav__sublist {
+        @include vp-1023 {
+          display: block;
+        }
+      }
     }
 
     &:last-child {
-      margin-right: 0;
-
-      @include vp-767 {
-        margin-bottom: 0;
-      }
+      margin: 0;
     }
   }
 
   &__link {
-    display: block;
+    display: flex;
+    align-items: center;
 
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 16px;
-    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
 
     color: $color-default-white;
 
     transition: opacity $trans-default;
-    transform: translate3d(0, 0, 0);
 
-    &.is-active {
-      color: $color-summer-sky;
+    &::after {
+      content: none;
+      position: absolute;
 
-      pointer-events: none;
+      top: 100%;
+      left: 0;
+
+      width: 100%;
+      height: 6px;
     }
+
+    svg {
+      flex-shrink: 0;
+
+      width: 16px;
+      height: 9px;
+      margin: 0 0 0 5px;
+
+      transition: transform $trans-default;
+    }
+
+    @include hover-focus {
+      opacity: 0.8;
+    }
+  }
+
+  &__sublist {
+    z-index: 10;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: -25px;
+
+    width: max-content;
+    min-width: 200px;
+    margin: 0;
+    padding: 7px 25px 22px;
+
+    list-style: none;
+
+    border-radius: 16px;
+    background-color: $color-crusoe;
+
+    transition: transform $trans-default, opacity $trans-default, visibility $trans-default;
+
+    opacity: 0;
+    visibility: hidden;
+
+    @include vp-1023 {
+      position: relative;
+      display: none;
+      top: 0;
+      left: 0;
+
+      width: auto;
+      min-width: unset;
+      padding: 18px 0 0 25px;
+
+      border-radius: 0;
+      background-color: $color-transparent;
+
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @include vp-679 {
+      padding: 18px 0 0 35px;
+    }
+  }
+
+  &__subitem {
+    margin: 0 0 10px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__sublink {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+
+    color: #FFFFFF;
+
+    transition: opacity $trans-default;
 
     @include hover-focus {
       opacity: 0.8;
