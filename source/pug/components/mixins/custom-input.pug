@@ -1,0 +1,17 @@
+mixin custom-input(options = {})
+  - const inputLabel = options.label ? options.label : false
+  - const inputType = options.type ? options.type : false
+  - const inputName = options.name ? options.name : false
+  - const inputPlaceholder = options.placeholder ? options.placeholder : false
+
+  - const icon = options.icon ? options.icon : false
+
+
+  .custom-input&attributes(attributes)
+    label
+      if (inputLabel)
+        span.custom-input__label!=inputLabel
+      input(type=inputType name=inputName placeholder=inputPlaceholder)
+      if (icon)
+        span.custom-input__icon
+          +icon(icon.name, icon.width, icon.height)

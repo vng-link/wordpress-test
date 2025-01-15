@@ -1,0 +1,12 @@
+mixin custom-radio(options = {})
+  - const inputLabel = options.label ? options.label : false
+  - const inputName = options.name ? options.name : false
+  - const inputValue = options.value ? options.value : false
+  - const inputChecked = options.checked ? options.checked : false
+
+  .custom-radio&attributes(attributes)
+    label
+      input(type="radio" name=inputName value=inputValue checked=inputChecked)
+      span.custom-radio__icon
+      if (inputLabel)
+        span.custom-radio__label!=inputLabel

@@ -1,0 +1,41 @@
+.custom-textarea {
+  position: relative;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  textarea {
+    height: 100%;
+    padding: 16px 20px 15px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    border: none;
+    border-radius: 12px;
+    color: $color-default-black;
+
+    outline: none;
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+
+      color: rgba($color-default-black, 0.5);
+    }
+  }
+
+  &__label {
+    display: block;
+    margin: 0 0 4px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

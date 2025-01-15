@@ -1,0 +1,90 @@
+// Vendor
+// ---------------------------------
+
+@import "vendor/normalize";
+@import "vendor/swiper/navigation";
+@import "vendor/swiper/pagination";
+@import "vendor/swiper/swiper";
+@import "vendor/fancybox";
+
+// Global
+// ---------------------------------
+
+@import "variables";
+@import "mixins";
+//@import "functions";
+@import "global/fonts";
+@import "global/reboot";
+@import "global/utils";
+@import "global/container";
+
+// Blocks
+// ---------------------------------
+
+@import "blocks/header";
+@import "blocks/main-nav";
+@import "blocks/footer";
+@import "blocks/btn";
+@import "blocks/data-accordion";
+@import "blocks/data-tabs";
+@import "blocks/intro";
+@import "blocks/accordion";
+@import "blocks/modal";
+@import "blocks/custom-checkbox";
+@import "blocks/custom-input";
+@import "blocks/custom-radio";
+@import "blocks/custom-select";
+@import "blocks/custom-textarea";
+
+// ---------------------------------
+
+// ❗❗❗ запрещено использовать изображения в css, касается как jpg \ png, так и svg
+
+// ❗ обязательно используйте mixin hover-focus для отключения ховеров на тач устройствах
+/* @mixin hover-focus {
+    @media (hover: hover) {
+      &:hover {
+        @content;
+      }
+    }
+
+    &:focus-visible {
+      @content;
+    }
+  }
+*/
+/*  @include hover-focus {
+      opacity: 0.8;
+    }
+*/
+// но не используем для текстовых полей ( input, textarea )
+// так же в сборке есть отдельный миксин для hover
+/*@mixin hover {
+    @media (hover: hover) {
+      &:hover {
+        @content;
+      }
+    }
+  }
+*/
+// для focus
+/*@mixin focus {
+    &:focus-visible {
+      @content;
+    }
+  }
+*/
+// и для active
+/*@mixin active {
+    &:active {
+      @content;
+    }
+  }
+*/
+// адаптив пишем внутри каждого класса (смотрим container.scss)
+
+// для фикса проблем с vh на iOS в сборке подключен скрипт
+// используя vh на проекте задавайте их также как в примере в utils.scss
+
+// для любых transition обязательно указывайте transition-property
+// transition: $trans-default ❌ ---> transition: color $trans-default ✅

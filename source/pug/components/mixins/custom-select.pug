@@ -1,0 +1,20 @@
+mixin custom-select(options = {})
+  - const selectName = options.name ? options.name : false
+  - const selectLabel = options.label ? options.label : false
+  - const selectPlaceholder = options.placeholder ? options.placeholder : ""
+  - const selectOptionsList = options.optionsList ? options.optionsList : false
+
+  .custom-select(data-select data-select-name=selectName)&attributes(attributes)
+    if (selectLabel)
+      span.custom-select__label!=selectLabel
+    button(type="button" data-select-button aria-label="").btn-reset.custom-select__button
+      span.custom-select__text!=selectPlaceholder
+      span.custom-select__icon
+    ul.custom-select__list(role="listbox")
+      each item in selectOptionsList
+        - const ariaSelected = item.isActive ? "true" : "false"
+        li.custom-select__item(tabindex="0" data-select-item data-select-value=item.value aria-selected=ariaSelected role="option")!=item.text
+    select(name=selectName tabindex="-1")
+      option(value="")!=selectPlaceholder
+      each item in selectOptionsList
+        option(value=item.value)!=item.text

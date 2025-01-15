@@ -1,0 +1,34 @@
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 14px 9px;
+
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  border: 1px solid $color-default-white;
+  border-radius: 4px;
+  background-color: $color-summer-sky-2;
+  color: $color-default-white;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: opacity $trans-default;
+
+  outline: none;
+
+  &--white {
+    border: 1px solid $color-dolphin;
+    background-color: $color-default-white;
+    color: $color-black-russian-2;
+  }
+
+  @include hover-focus {
+    opacity: 0.8;
+  }
+}

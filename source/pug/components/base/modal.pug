@@ -1,0 +1,9 @@
+mixin modal(mods)
+  .modal(class=mods)&attributes(attributes)
+    .modal__wrapper
+      .modal__overlay(data-close-modal)
+      .modal__content
+        if block
+          block
+        button.btn-reset.modal__close-button(type="button" arial-label="Закрыть попап" data-close-modal)
+          +icon("icon-close", 16, 16)

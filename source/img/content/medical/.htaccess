@@ -1,0 +1,26 @@
+
+# BEGIN WordPress
+# Директивы (строки) между `BEGIN WordPress` и `END WordPress`
+# созданы автоматически и подлежат изменению только через фильтры WordPress.
+# Сделанные вручную изменения между этими маркерами будут перезаписаны.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+#php_value memory_limit 2G
+php_value memory_limit 6G
+php_value post_max_size 1G
+php_value upload_max_filesize 1G
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/alubox.pro/product-category/dangerous-goods/$
+RewriteRule ^.*$ http://alubox.pro/product/jashhik-kapitan-dlja-opasnyh-gruzov/? [R=301,L]
+</IfModule>

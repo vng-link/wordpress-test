@@ -1,0 +1,12 @@
+mixin custom-textarea(options = {})
+  - const textareaLabel = options.label ? options.label : false
+  - const textareaName = options.name ? options.name : false
+  - const textareaValue = options.value ? options.value : false
+  - const textareaPlaceholder = options.placeholder ? options.placeholder : false
+
+  .custom-textarea&attributes(attributes)
+    label
+      if (textareaLabel)
+        span.custom-textarea__label!=textareaLabel
+
+      textarea(name=textareaName value=textareaValue placeholder=textareaPlaceholder)
